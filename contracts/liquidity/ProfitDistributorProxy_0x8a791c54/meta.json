@@ -1,0 +1,33 @@
+{
+  "address": "0x8a797ea0adf48c398fe96fac0d4b6647ed641c54",
+  "verified": true,
+  "ContractName": "ProfitDistributorProxy",
+  "CompilerVersion": "v0.8.26+commit.8a97fa7a",
+  "OptimizationUsed": "1",
+  "Runs": "1",
+  "EVMVersion": "cancun",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts/access/Ownable.sol",
+    "@openzeppelin/contracts/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/Context.sol",
+    "contracts/arbitrage_plugin/core/interfaces/IProfitDistributor.sol",
+    "contracts/arbitrage_plugin/core/ProfitDistributorProxy.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "viaIR": true,
+    "evmVersion": "cancun",
+    "optimizer": {
+      "enabled": true,
+      "runs": 1
+    }
+  }
+}

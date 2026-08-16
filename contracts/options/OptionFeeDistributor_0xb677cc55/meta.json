@@ -1,0 +1,35 @@
+{
+  "address": "0xb677271ba49d5bb1bab3458f3e50fa7a0a30cc55",
+  "verified": true,
+  "ContractName": "OptionFeeDistributor",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+    "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+    "@openzeppelin/contracts/token/ERC20/extensions/IERC20Permit.sol",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "contracts/interfaces/IPermissionsRegistry.sol",
+    "contracts/OptionToken/IFloorGuardian.sol",
+    "contracts/OptionToken/IOptionFeeDistributor.sol",
+    "contracts/OptionToken/OptionFeeDistributor.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

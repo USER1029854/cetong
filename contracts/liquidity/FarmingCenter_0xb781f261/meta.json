@@ -1,0 +1,51 @@
+{
+  "address": "0xb781a7afcf46dec1fa16a722efd25433d1b9f261",
+  "verified": true,
+  "ContractName": "FarmingCenter",
+  "CompilerVersion": "v0.8.20+commit.a1b79de6",
+  "OptimizationUsed": "1",
+  "Runs": "99999999",
+  "EVMVersion": "paris",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@cryptoalgebra/integral-base-plugin/contracts/interfaces/plugins/IFarmingPlugin.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraPool.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IERC20Minimal.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolErrors.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolEvents.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolImmutables.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolPermissionedActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolState.sol",
+    "@cryptoalgebra/integral-periphery/contracts/base/Multicall.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IERC721Permit.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IMulticall.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/INonfungiblePositionManager.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IPeripheryImmutableState.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IPeripheryPayments.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IPoolInitializer.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IPositionFollower.sol",
+    "@cryptoalgebra/integral-periphery/contracts/libraries/PoolAddress.sol",
+    "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol",
+    "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+    "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+    "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+    "contracts/base/IncentiveKey.sol",
+    "contracts/FarmingCenter.sol",
+    "contracts/interfaces/IAlgebraEternalFarming.sol",
+    "contracts/interfaces/IFarmingCenter.sol",
+    "contracts/libraries/IncentiveId.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 99999999
+    },
+    "libraries": {}
+  }
+}

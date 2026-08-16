@@ -1,0 +1,54 @@
+{
+  "hydx_totalSupply": 102118161.74426073,
+  "balances": {
+    "AlgebraPool_main_0x51f0": {
+      "HYDX": 21549672.721489355,
+      "USDC": 229875.822682
+    },
+    "classicPair_0x605abd": {
+      "HYDX": 95680.46258387834,
+      "USDC": 1464.673173
+    },
+    "oHYDX_OptionToken_0xa113": {
+      "HYDX": 31056181.539174214,
+      "USDC": 3e-06
+    },
+    "VotingEscrow_0x25b2": {
+      "HYDX": 15120106.63810855,
+      "USDC": 0.0
+    },
+    "RewardsDistributor_0x6fca": {
+      "HYDX": 799028.322271482,
+      "USDC": 0.0
+    },
+    "Minter_0xa7d6": {
+      "HYDX": 0.0,
+      "USDC": 0.0
+    },
+    "TreasurySafe_0xd9e9": {
+      "HYDX": 8183379.076970697,
+      "USDC": 52904.196413
+    },
+    "communityVault_0xac39": {
+      "HYDX": 114.0403668155267,
+      "USDC": 3.071627
+    }
+  },
+  "main_pool": {
+    "HYDX": 21549672.721489355,
+    "USDC": 229875.822682,
+    "implied_HYDX_price_usdc(crude balance ratio)": 0.010667253542684553,
+    "USDC_leg_usd": 229875.822682,
+    "note": "concentrated liquidity; $ value dominated by USDC leg + HYDX leg valued at market"
+  },
+  "oHYDX_backing": {
+    "HYDX_held": 31056181.539174214,
+    "oHYDX_supply": 31056181.539174214,
+    "backing_ratio": 1.0
+  },
+  "hydx_approvals": {
+    "Minter->Voter": 0,
+    "Minter->ve": 0
+  },
+  "ohydx_usdc_allowance_to_feeDistributor": 1.157920892373162e+71
+}

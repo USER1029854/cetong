@@ -1,0 +1,14 @@
+{
+  "address": "0x106937fc03212a762be17d529893a32e47ba13a1",
+  "verified": false,
+  "ContractName": "",
+  "CompilerVersion": "",
+  "OptimizationUsed": "",
+  "Runs": "",
+  "EVMVersion": "Default",
+  "LicenseType": "Unknown",
+  "Proxy": "1",
+  "Implementation": "0xaf11628e68e8bd45375560e549ab8411fa034d4f",
+  "ConstructorArguments": "",
+  "files": []
+}

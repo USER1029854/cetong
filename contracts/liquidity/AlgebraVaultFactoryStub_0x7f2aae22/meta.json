@@ -1,0 +1,26 @@
+{
+  "address": "0x7f2a845d49786b089f77d5c77b6a10637594ae22",
+  "verified": true,
+  "ContractName": "AlgebraVaultFactoryStub",
+  "CompilerVersion": "v0.8.20+commit.a1b79de6",
+  "OptimizationUsed": "1",
+  "Runs": "800",
+  "EVMVersion": "paris",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "contracts/AlgebraVaultFactoryStub.sol",
+    "contracts/interfaces/vault/IAlgebraVaultFactory.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 800
+    },
+    "libraries": {}
+  }
+}

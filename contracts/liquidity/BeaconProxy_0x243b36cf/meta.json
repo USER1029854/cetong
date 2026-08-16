@@ -1,0 +1,30 @@
+{
+  "address": "0x243b6136abf6ef6fc5de3422eb82612d4c4c36cf",
+  "verified": true,
+  "ContractName": "BeaconProxy",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "1",
+  "Implementation": "0x22d23d13aa0065ff3233cc7628f59b49dc80480d",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+    "@openzeppelin/contracts/interfaces/IERC1967.sol",
+    "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "@openzeppelin/contracts/proxy/Proxy.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/StorageSlot.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

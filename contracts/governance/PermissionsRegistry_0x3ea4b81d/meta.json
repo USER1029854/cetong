@@ -1,0 +1,25 @@
+{
+  "address": "0x3ea45157819c46323cf3a4a3cb93bf58aa7eb81d",
+  "verified": true,
+  "ContractName": "PermissionsRegistry",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "00000000000000000000000040fbfe5312330f278824ddbb7521ab77409192f0",
+  "files": [
+    "contracts/interfaces/IPermissionsRegistry.sol",
+    "contracts/interfaces/IVersionable.sol",
+    "contracts/PermissionsRegistry.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

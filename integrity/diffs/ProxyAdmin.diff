@@ -1,0 +1,14 @@
+6,7c6,7
+< import "./TransparentUpgradeableProxy.sol";
+< import "../../access/Ownable.sol";
+---
+> import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
+> import "@openzeppelin/contracts/access/Ownable.sol";
+11a12
+>  * @notice Added constructor to set initial owner
+13a15,19
+>     /// @dev ADDED by DeFiFoFum to set initial owner
+>     constructor(address _initialOwner) Ownable() {
+>         _transferOwnership(_initialOwner);
+>     }
+> 

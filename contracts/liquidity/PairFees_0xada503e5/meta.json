@@ -1,0 +1,24 @@
+{
+  "address": "0xada56cd47fa32d96b835c5c54e54124a3a2403e5",
+  "verified": true,
+  "ContractName": "PairFees",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "contracts/interfaces/IERC20.sol",
+    "contracts/PairFees.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

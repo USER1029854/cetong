@@ -1,0 +1,37 @@
+{
+  "address": "0xf524522bbd8fc020033d94f83b83f5b50c9b6ea7",
+  "verified": true,
+  "ContractName": "AlgebraIntegralTwap",
+  "CompilerVersion": "v0.8.19+commit.7dd6d404",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@cryptoalgebra/integral-base-plugin/contracts/interfaces/plugins/IVolatilityOracle.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraPool.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/plugin/IAlgebraPluginFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolErrors.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolEvents.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolImmutables.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolPermissionedActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolState.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/vault/IAlgebraVaultFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/libraries/FullMath.sol",
+    "@cryptoalgebra/integral-core/contracts/libraries/TickMath.sol",
+    "contracts/OptionToken/DynamicTwapOracle/AlgebraIntegralTwap.sol",
+    "contracts/OptionToken/DynamicTwapOracle/IDynamicTwapOracle.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

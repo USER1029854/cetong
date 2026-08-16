@@ -1,0 +1,155 @@
+{
+  "safes": {
+    "AdminSafe_0x1ae3(Minter owner)": {
+      "owners": [
+        "0x35e8153614c26f31b78e661184d19d3c25702d67",
+        "0xea1bf482b7d3526ccf37a8a3fee330c960877f08",
+        "0x813f98f0f29509d558b2479d8ee0c8068c160bd3",
+        "0xb4d2861d525aef313be0c497c3335a58f637e73e"
+      ],
+      "threshold": 2,
+      "nonce": 567,
+      "version": "1.4.1"
+    },
+    "TreasurySafe_0xd9e9(teamRecipient, orig owner)": {
+      "owners": [
+        "0xea1bf482b7d3526ccf37a8a3fee330c960877f08",
+        "0x813f98f0f29509d558b2479d8ee0c8068c160bd3",
+        "0xb4d2861d525aef313be0c497c3335a58f637e73e"
+      ],
+      "threshold": 2,
+      "nonce": 560,
+      "version": "1.3.0"
+    },
+    "FloorReceiverSafe_0x704e": {
+      "owners": [
+        "0xea1bf482b7d3526ccf37a8a3fee330c960877f08",
+        "0xb4d2861d525aef313be0c497c3335a58f637e73e",
+        "0x813f98f0f29509d558b2479d8ee0c8068c160bd3"
+      ],
+      "threshold": 2,
+      "nonce": 225,
+      "version": "1.4.1"
+    }
+  },
+  "timelock_0xdf52": {
+    "minDelay": 86400,
+    "roles": {
+      "TIMELOCK_ADMIN_ROLE": [
+        "0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f"
+      ],
+      "PROPOSER_ROLE": [
+        "0x76954c21e2a6cfc6179c8a03c7426ef2bcf35f4a"
+      ],
+      "EXECUTOR_ROLE": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+      ],
+      "CANCELLER_ROLE": [
+        "0x76954c21e2a6cfc6179c8a03c7426ef2bcf35f4a"
+      ]
+    },
+    "DEFAULT_ADMIN_ROLE": []
+  },
+  "proxyAdmin_0x6e25": {
+    "owner": "0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f"
+  },
+  "beacons": {
+    "plugin_beacon_0x106937fc": {
+      "owner": "0xa8dd4c05796801c734e99d5582e90e3a8bd88194",
+      "implementation": "0xaf11628e68e8bd45375560e549ab8411fa034d4f"
+    },
+    "communityVault_beacon_0x799b61d7": {
+      "owner": "0xdb5a8524b6127a8fa83083fab0a30dd5df0b42a6",
+      "implementation": "0x22d23d13aa0065ff3233cc7628f59b49dc80480d"
+    }
+  },
+  "optionTokenV4_0xa113": {
+    "DEFAULT_ADMIN_ROLE": [
+      "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+    ],
+    "ADMIN_ROLE": [
+      "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+    ],
+    "MINTER_ROLE": [
+      "0xa7d64625f45548a19b2a19e28e7546bb2839003e"
+    ],
+    "PAUSER_ROLE": [
+      "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+    ],
+    "isPaused": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "discount": 30,
+    "permissionedMint": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "twapSeconds": 7200
+  },
+  "permissionsRegistry_voter_0x3ea4": {
+    "roles": {
+      "GOVERNANCE": [
+        "0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f"
+      ],
+      "VOTER_ADMIN": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+      ],
+      "GAUGE_ADMIN": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311",
+        "0x74266f2b206d1359b83fc74949ef07176fb3ae03"
+      ],
+      "BRIBE_ADMIN": [
+        "0x74266f2b206d1359b83fc74949ef07176fb3ae03"
+      ],
+      "FEE_MANAGER": [],
+      "CL_FEES_VAULT_ADMIN": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+      ],
+      "INFRA_ADMIN": [
+        "0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f"
+      ]
+    },
+    "extra": {
+      "emergencyCouncil()": "0xcf57aa5b3d2f311746f1b1bae8746aacb59db105"
+    }
+  },
+  "permissionsRegistry_feeDist_0x4180": {
+    "roles": {
+      "GOVERNANCE": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311",
+        "0x74266f2b206d1359b83fc74949ef07176fb3ae03"
+      ],
+      "VOTER_ADMIN": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+      ],
+      "GAUGE_ADMIN": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+      ],
+      "BRIBE_ADMIN": [],
+      "FEE_MANAGER": [],
+      "CL_FEES_VAULT_ADMIN": [
+        "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+      ]
+    },
+    "extra": {
+      "emergencyCouncil()": "0x1ae3753d9b60743a89159ccff8e251c60b560311"
+    }
+  },
+  "algebraFactory_0x3607": {
+    "owner": "0x74266f2b206d1359b83fc74949ef07176fb3ae03",
+    "POOLS_ADMINISTRATOR_members": [
+      "0x00ede53f39415e64c78eebd02ad9d383b3a0c0f1",
+      "0xdead1f5af792afc125812e875a891b038f888258"
+    ],
+    "DEFAULT_ADMIN_members": [
+      "0x74266f2b206d1359b83fc74949ef07176fb3ae03"
+    ],
+    "defaultCommunityFee": 0
+  },
+  "minter_0xa7d6": {
+    "owner": "0x1ae3753d9b60743a89159ccff8e251c60b560311",
+    "governor": "0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f",
+    "teamAdmin": "0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f",
+    "teamRecipient": "0xd9e966a6bfa2ae2113a34bb4dd02ded921da50af",
+    "emissionsGovernor": "0x0000000000000000000000000000000000000000",
+    "teamRate": 40
+  },
+  "hydx_0x0000": {
+    "owner": "0xa7d64625f45548a19b2a19e28e7546bb2839003e"
+  }
+}

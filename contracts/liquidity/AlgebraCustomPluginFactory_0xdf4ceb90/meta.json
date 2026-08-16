@@ -1,0 +1,53 @@
+{
+  "address": "0xdf4c8238e9bdb2a14fa2f3a16cd32f251948eb90",
+  "verified": true,
+  "ContractName": "AlgebraCustomPluginFactory",
+  "CompilerVersion": "v0.8.20+commit.a1b79de6",
+  "OptimizationUsed": "1",
+  "Runs": "0",
+  "EVMVersion": "paris",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@cryptoalgebra/abstract-plugin/contracts/AlgebraPluginProxy.sol",
+    "@cryptoalgebra/farming-proxy-plugin/contracts/interfaces/IFarmingPluginFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraPool.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/plugin/IAlgebraPluginFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolErrors.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolEvents.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolImmutables.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolPermissionedActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolState.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/vault/IAlgebraVaultFactory.sol",
+    "@cryptoalgebra/integral-periphery/contracts/interfaces/IAlgebraCustomPoolEntryPoint.sol",
+    "@cryptoalgebra/safety-switch-plugin/contracts/interfaces/ISecurityPluginFactory.sol",
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+    "@openzeppelin/contracts/access/Ownable.sol",
+    "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+    "@openzeppelin/contracts/interfaces/IERC1967.sol",
+    "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/proxy/beacon/UpgradeableBeacon.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "@openzeppelin/contracts/proxy/Proxy.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/Context.sol",
+    "@openzeppelin/contracts/utils/StorageSlot.sol",
+    "contracts/AlgebraCustomPluginFactory.sol",
+    "contracts/interfaces/IAlgebraCustomPluginFactory.sol",
+    "contracts/interfaces/IAlgebraUpgradeablePlugin.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 0
+    }
+  }
+}

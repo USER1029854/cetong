@@ -1,0 +1,30 @@
+{
+  "address": "0x0a607e49d838d4226b129822bd696fafe6ea0f0b",
+  "verified": true,
+  "ContractName": "SecurityRegistry",
+  "CompilerVersion": "v0.8.20+commit.a1b79de6",
+  "OptimizationUsed": "1",
+  "Runs": "1000000",
+  "EVMVersion": "paris",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/plugin/IAlgebraPluginFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/vault/IAlgebraVaultFactory.sol",
+    "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
+    "contracts/interfaces/plugins/ISecurityRegistry.sol",
+    "contracts/plugins/SecurityRegistry.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 1000000
+    },
+    "libraries": {}
+  }
+}

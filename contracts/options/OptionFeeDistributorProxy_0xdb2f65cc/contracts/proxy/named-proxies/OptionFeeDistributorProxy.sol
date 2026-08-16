@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+pragma solidity ^0.8.0;
+
+/*
+    __  __          __                 _____ 
+   / / / /_  ______/ /_______  _  __  / __(_)
+  / /_/ / / / / __  / ___/ _ \| |/_/ / /_/ / 
+ / __  / /_/ / /_/ / /  /  __/>  <_ / __/ /  
+/_/ /_/\__, /\__,_/_/   \___/_/|_(_)_/ /_/   
+      /____/                                 
+
+*/
+
+import {TransparentUpgradeableProxy} from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
+
+contract OptionFeeDistributorProxy is TransparentUpgradeableProxy {
+    /// @dev Prevent bytecode collisions
+    string public constant NAME = "OptionFeeDistributorProxy";
+
+    constructor(
+        address logic_,
+        address admin_,
+        bytes memory data_
+    ) TransparentUpgradeableProxy(logic_, admin_, data_) {}
+} 

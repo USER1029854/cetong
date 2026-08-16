@@ -1,0 +1,36 @@
+{
+  "address": "0x00ede53f39415e64c78eebd02ad9d383b3a0c0f1",
+  "verified": true,
+  "ContractName": "AlgebraCustomPoolEntryPoint",
+  "CompilerVersion": "v0.8.20+commit.a1b79de6",
+  "OptimizationUsed": "1",
+  "Runs": "1000000",
+  "EVMVersion": "paris",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/IAlgebraPool.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/plugin/IAlgebraPluginFactory.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolErrors.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolEvents.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolImmutables.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolPermissionedActions.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/pool/IAlgebraPoolState.sol",
+    "@cryptoalgebra/integral-core/contracts/interfaces/vault/IAlgebraVaultFactory.sol",
+    "contracts/AlgebraCustomPoolEntryPoint.sol",
+    "contracts/interfaces/IAlgebraCustomPoolEntryPoint.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": true,
+      "runs": 1000000
+    },
+    "libraries": {}
+  }
+}

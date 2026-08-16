@@ -1,0 +1,17 @@
+{
+  "address": "0xd9e966a6bfa2ae2113a34bb4dd02ded921da50af",
+  "verified": true,
+  "ContractName": "GnosisSafeProxy",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "GNU GPLv3",
+  "Proxy": "1",
+  "Implementation": "0xfb1bffc9d739b8d520daf37df666da4c687191ea",
+  "ConstructorArguments": "",
+  "files": [
+    "GnosisSafeProxy.sol",
+    "abi.json"
+  ]
+}

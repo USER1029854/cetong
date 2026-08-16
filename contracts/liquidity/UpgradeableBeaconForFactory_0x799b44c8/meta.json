@@ -1,0 +1,28 @@
+{
+  "address": "0x799b61d720afc817c58d944c59c973f01dfa44c8",
+  "verified": true,
+  "ContractName": "UpgradeableBeaconForFactory",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "1",
+  "Implementation": "0x22d23d13aa0065ff3233cc7628f59b49dc80480d",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts/access/Ownable.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/Context.sol",
+    "contracts/factories/beacon-factory/IBeaconFactory.sol",
+    "contracts/factories/beacon-factory/UpgradeableBeaconForFactory.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

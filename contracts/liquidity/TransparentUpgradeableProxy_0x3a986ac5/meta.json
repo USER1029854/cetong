@@ -1,0 +1,33 @@
+{
+  "address": "0x3a980817e1522c532cc504dba5f5fee9e9096ac5",
+  "verified": true,
+  "ContractName": "TransparentUpgradeableProxy",
+  "CompilerVersion": "v0.8.10+commit.fc410830",
+  "OptimizationUsed": "1",
+  "Runs": "999999",
+  "EVMVersion": "london",
+  "LicenseType": "MIT",
+  "Proxy": "1",
+  "Implementation": "0x9e904666504580af8562b90d0a54786ae07ae9c7",
+  "ConstructorArguments": "",
+  "files": [
+    "solc_0.8/openzeppelin/interfaces/draft-IERC1822.sol",
+    "solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Proxy.sol",
+    "solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Upgrade.sol",
+    "solc_0.8/openzeppelin/proxy/Proxy.sol",
+    "solc_0.8/openzeppelin/proxy/beacon/IBeacon.sol",
+    "solc_0.8/openzeppelin/proxy/transparent/TransparentUpgradeableProxy.sol",
+    "solc_0.8/openzeppelin/utils/Address.sol",
+    "solc_0.8/openzeppelin/utils/StorageSlot.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "london",
+    "libraries": {},
+    "optimizer": {
+      "enabled": true,
+      "runs": 999999
+    },
+    "remappings": []
+  }
+}

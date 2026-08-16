@@ -1,0 +1,31 @@
+{
+  "address": "0xa96af4f0d265493bdc75e614c389ff5dda3f657b",
+  "verified": true,
+  "ContractName": "VeArtProxy_HYDX",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+    "contracts/libraries/Base64.sol",
+    "contracts/VeArtProxy/IVeArtProxyHydrex.sol",
+    "contracts/VeArtProxy/StringLib.sol",
+    "contracts/VeArtProxy/veHYDX/VeArtProxy_HYDX.sol",
+    "contracts/VoterV5/VotingEscrow/IVotingEscrowV2_Data.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

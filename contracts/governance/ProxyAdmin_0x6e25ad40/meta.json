@@ -1,0 +1,34 @@
+{
+  "address": "0x6e25d241a3ba9e0278a296b398e9678e5ed8ad40",
+  "verified": true,
+  "ContractName": "ProxyAdmin",
+  "CompilerVersion": "v0.8.19+commit.7dd6d404",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts/access/Ownable.sol",
+    "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+    "@openzeppelin/contracts/interfaces/IERC1967.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "@openzeppelin/contracts/proxy/Proxy.sol",
+    "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/Context.sol",
+    "@openzeppelin/contracts/utils/StorageSlot.sol",
+    "contracts/proxy/ProxyAdmin.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

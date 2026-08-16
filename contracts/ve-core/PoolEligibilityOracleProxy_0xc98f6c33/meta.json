@@ -1,0 +1,32 @@
+{
+  "address": "0xc98fb7b58d4da6c93c4a62bbeaa60932abc96c33",
+  "verified": true,
+  "ContractName": "PoolEligibilityOracleProxy",
+  "CompilerVersion": "v0.8.19+commit.7dd6d404",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "1",
+  "Implementation": "0x0d3d15a794db6d185ec2d7fbe7587275a47f146e",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+    "@openzeppelin/contracts/interfaces/IERC1967.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "@openzeppelin/contracts/proxy/Proxy.sol",
+    "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/StorageSlot.sol",
+    "contracts/proxy/named-proxies/PoolEligibilityOracleProxy.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

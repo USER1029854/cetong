@@ -1,0 +1,30 @@
+{
+  "address": "0x605abd1873737ca9a9ec1cfa52cdfc8ef62c2e1d",
+  "verified": true,
+  "ContractName": "Pair",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "contracts/interfaces/IDibs.sol",
+    "contracts/interfaces/IERC20.sol",
+    "contracts/interfaces/IPair.sol",
+    "contracts/interfaces/IPairCallee.sol",
+    "contracts/interfaces/IPairFactory.sol",
+    "contracts/libraries/Math.sol",
+    "contracts/Pair.sol",
+    "contracts/PairFees.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "address": "0x29fcb43b46531bca003ddc8fcb67ffe91900c762",
+  "verified": true,
+  "ContractName": "SafeL2",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "istanbul",
+  "LicenseType": "None",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "contracts/Safe.sol",
+    "contracts/SafeL2.sol",
+    "contracts/base/Executor.sol",
+    "contracts/base/FallbackManager.sol",
+    "contracts/base/GuardManager.sol",
+    "contracts/base/ModuleManager.sol",
+    "contracts/base/OwnerManager.sol",
+    "contracts/common/Enum.sol",
+    "contracts/common/NativeCurrencyPaymentFallback.sol",
+    "contracts/common/SecuredTokenTransfer.sol",
+    "contracts/common/SelfAuthorized.sol",
+    "contracts/common/SignatureDecoder.sol",
+    "contracts/common/Singleton.sol",
+    "contracts/common/StorageAccessible.sol",
+    "contracts/external/SafeMath.sol",
+    "contracts/interfaces/IERC165.sol",
+    "contracts/interfaces/ISignatureValidator.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "istanbul",
+    "libraries": {},
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "remappings": []
+  }
+}

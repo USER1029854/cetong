@@ -1,0 +1,32 @@
+{
+  "address": "0xbe50ae4934305c7cdc449862e387ca0515f3402f",
+  "verified": true,
+  "ContractName": "GaugeFactoryIncentiveCampaignProxy",
+  "CompilerVersion": "v0.8.19+commit.7dd6d404",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "1",
+  "Implementation": "0x30d5e87ce5c888711477184782126d241a75983e",
+  "ConstructorArguments": "000000000000000000000000d21fbed41717f90f8d11a5585f80562147fec3f40000000000000000000000006e25d241a3ba9e0278a296b398e9678e5ed8ad4000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000084f8c8765e00000000000000000000000041806e1af8c8ba32a2dcb289e52da7bd0a5bf2f700000000000000000000000083fb14fc461527959404631631bcff7778e0afdb000000000000000000000000db5a8524b6127a8fa83083fab0a30dd5df0b42a600000000000000000000000026b78fea15b60ed35b59272592b6bad89f26d81700000000000000000000000000000000000000000000000000000000",
+  "files": [
+    "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+    "@openzeppelin/contracts/interfaces/IERC1967.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "@openzeppelin/contracts/proxy/Proxy.sol",
+    "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/StorageSlot.sol",
+    "contracts/proxy/named-proxies/GaugeFactoryIncentiveCampaignProxy.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

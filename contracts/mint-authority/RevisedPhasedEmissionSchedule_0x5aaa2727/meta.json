@@ -1,0 +1,28 @@
+{
+  "address": "0x5aaa65af617fa50041325f46ecee5613aaff2727",
+  "verified": true,
+  "ContractName": "RevisedPhasedEmissionSchedule",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "000000000000000000000000f983c6c59685b22dc1ad2674281b48abcff2f941",
+  "files": [
+    "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+    "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+    "contracts/Constants.sol",
+    "contracts/emission-schedule/IEmissionSchedule.sol",
+    "contracts/emission-schedule/RevisedPhasedEmissionSchedule.sol",
+    "contracts/libraries/Math.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

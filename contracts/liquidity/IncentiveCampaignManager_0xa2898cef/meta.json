@@ -1,0 +1,29 @@
+{
+  "address": "0xa28990c78ab53a7ade388200136b3f61debc8cef",
+  "verified": true,
+  "ContractName": "IncentiveCampaignManager",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+    "contracts/IncentiveCampaignManager.sol",
+    "contracts/interfaces/IIncentiveCampaignManager.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "address": "0x2ce6311ddae708829bc0784c967b7d77d19fd779",
+  "verified": true,
+  "ContractName": "FiatTokenV2_2",
+  "CompilerVersion": "v0.6.12+commit.27d51765",
+  "OptimizationUsed": "1",
+  "Runs": "10000000",
+  "EVMVersion": "istanbul",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/FiatTokenV2_2.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "@openzeppelin/contracts/math/SafeMath.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/FiatTokenV2_1.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/FiatTokenV2.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/EIP712Domain.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/EIP3009.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/EIP2612.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v2/AbstractFiatTokenV2.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1/Pausable.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1/Ownable.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1/FiatTokenV1.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1/Blacklistable.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1/AbstractFiatTokenV1.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1.1/Rescuable.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/v1.1/FiatTokenV1_1.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/util/SignatureChecker.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/util/MessageHashUtils.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/util/EIP712.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/util/ECRecover.sol",
+    "Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/interface/IERC1271.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "remappings": [],
+    "optimizer": {
+      "enabled": true,
+      "runs": 10000000
+    },
+    "evmVersion": "istanbul",
+    "libraries": {
+      "/Users/aloysius.chan/Repositories/circlefin/stablecoin-evm-private-usdc-mainnet-base/contracts/util/SignatureChecker.sol": {
+        "SignatureChecker": "0x2D943E25e1859ED786AFe4AFB2B42e14EFAC691e"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "address": "0xeb39e1b0450f318ff1d2795d204ea3808b5d998f",
+  "verified": true,
+  "ContractName": "SimpleFloorGuardian",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "contracts/interfaces/IPermissionsRegistry.sol",
+    "contracts/OptionToken/IFloorGuardian.sol",
+    "contracts/OptionToken/SimpleFloorGuardian.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

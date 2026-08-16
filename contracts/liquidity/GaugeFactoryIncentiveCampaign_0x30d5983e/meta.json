@@ -1,0 +1,45 @@
+{
+  "address": "0x30d5e87ce5c888711477184782126d241a75983e",
+  "verified": true,
+  "ContractName": "GaugeFactoryIncentiveCampaign",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+    "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+    "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+    "@openzeppelin/contracts/interfaces/IERC1967.sol",
+    "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol",
+    "@openzeppelin/contracts/proxy/beacon/IBeacon.sol",
+    "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "@openzeppelin/contracts/proxy/Proxy.sol",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+    "@openzeppelin/contracts/utils/StorageSlot.sol",
+    "contracts/factories/beacon-factory/IBeaconFactory.sol",
+    "contracts/factories/GaugeFactoryIncentiveCampaign.sol",
+    "contracts/factories/interfaces/IGaugeFactoryIncentiveCampaign.sol",
+    "contracts/factories/interfaces/IGaugeFactoryV2.sol",
+    "contracts/interfaces/IGaugeIncentiveCampaign.sol",
+    "contracts/interfaces/IGaugeV2.sol",
+    "contracts/interfaces/IMultiTokenPool.sol",
+    "contracts/interfaces/IPermissionsRegistry.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}

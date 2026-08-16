@@ -1,0 +1,30 @@
+{
+  "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+  "verified": true,
+  "ContractName": "FiatTokenProxy",
+  "CompilerVersion": "v0.6.12+commit.27d51765",
+  "OptimizationUsed": "1",
+  "Runs": "10000000",
+  "EVMVersion": "istanbul",
+  "LicenseType": "",
+  "Proxy": "1",
+  "Implementation": "0x2ce6311ddae708829bc0784c967b7d77d19fd779",
+  "ConstructorArguments": "0000000000000000000000006d0c9a70d85e42ba8b76dc06620d4e988ec8d0c1",
+  "files": [
+    "Users/lnguyen/circle/centre-tokens/contracts/v1/FiatTokenProxy.sol",
+    "@openzeppelin/contracts/utils/Address.sol",
+    "Users/lnguyen/circle/centre-tokens/contracts/upgradeability/UpgradeabilityProxy.sol",
+    "Users/lnguyen/circle/centre-tokens/contracts/upgradeability/Proxy.sol",
+    "Users/lnguyen/circle/centre-tokens/contracts/upgradeability/AdminUpgradeabilityProxy.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "remappings": [],
+    "optimizer": {
+      "enabled": true,
+      "runs": 10000000
+    },
+    "evmVersion": "istanbul",
+    "libraries": {}
+  }
+}

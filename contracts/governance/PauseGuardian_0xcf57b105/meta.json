@@ -1,0 +1,25 @@
+{
+  "address": "0xcf57aa5b3d2f311746f1b1bae8746aacb59db105",
+  "verified": true,
+  "ContractName": "PauseGuardian",
+  "CompilerVersion": "v0.8.13+commit.abaa5c0e",
+  "OptimizationUsed": "1",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "LicenseType": "",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "00000000000000000000000076954c21e2a6cfc6179c8a03c7426ef2bcf35f4a000000000000000000000000c69e3ef39e3ffbce2a1c570f8d3adf76909ef17b00000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000",
+  "files": [
+    "@openzeppelin/contracts/access/Ownable.sol",
+    "@openzeppelin/contracts/utils/Context.sol",
+    "contracts/PauseGuardian.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    }
+  }
+}
