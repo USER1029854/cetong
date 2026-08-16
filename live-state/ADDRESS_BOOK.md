@@ -1,6 +1,7 @@
 # Hydrex (HYDX) trust-graph address book
 
-Total nodes: 72
+
+Total nodes: 81
 
 
 ## target
@@ -26,6 +27,8 @@ Total nodes: 72
 - `0x8cf73eb543c75ba5f2e188d3ce5f8682f2e7f0a3` **VoterV5_GaugeLogic** (verified) — Voter gaugeLogic (delegatecall target?)
 - `0x0fc68ce53be957a1aa779f553ad49f6068fff231` **VotingEscrowV2Upgradeable** (verified) — VotingEscrowV2 implementation
 - `0x25b2ed7149fb8a05f6ef9407d9c8f878f59cd1e1` **VotingEscrowV2UpgradeableProxy** (verified) [proxy→0x0fc68ce5…] — VotingEscrowV2UpgradeableProxy veHYDX (14.8% holder)
+- `0x4b0bc0889eb524dbae36d409ff733851e9b4f63d` **VotingEscrowV2_ApprovalLogic** (verified) — VotingEscrowV2 ApprovalLogic (delegatecall target)
+- `0x5c8dbb8f2e436175317929d1e299eb23d34eb27c` **VotingEscrowV2_LockLogic** (verified) — VotingEscrowV2 LockLogic (delegatecall target)
 
 ## options
 - `0xf524522bbd8fc020033d94f83b83f5b50c9b6ea7` **AlgebraIntegralTwap** (verified) — TwapOracle for OptionToken discount pricing
@@ -52,6 +55,7 @@ Total nodes: 72
 - `0x106937fc03212a762be17d529893a32e47ba13a1` **Contract** (UNVERIFIED) [proxy→0xaf11628e…] — plugin UpgradeableBeacon
 - `0x9e904666504580af8562b90d0a54786ae07ae9c7` **Contract** (UNVERIFIED) — MevxExecutor implementation
 - `0x2c3baec42114dd0c09dcd9b4402c782c6e34877a` **Contract** (UNVERIFIED) — MevxRouter implementation
+- `0x854c9c8d6e7a9ec88592af174a4f040aa080b6c1` **Contract** (UNVERIFIED) — MevX router auxiliary oracle/quoter (stopLoss getter)
 - `0xb781a7afcf46dec1fa16a722efd25433d1b9f261` **FarmingCenter** (verified) — Algebra farmingAddress (eternal farming)
 - `0x30d5e87ce5c888711477184782126d241a75983e` **GaugeFactoryIncentiveCampaign** (verified) — GaugeFactoryIncentiveCampaign implementation
 - `0x22d23d13aa0065ff3233cc7628f59b49dc80480d` **GaugeIncentiveCampaign** (verified) — AlgebraCommunityVault implementation
@@ -72,14 +76,20 @@ Total nodes: 72
 ## governance
 - `0x74266f2b206d1359b83fc74949ef07176fb3ae03` **EOA** (EOA) — AlgebraFactory owner (authority)
 - `0x000000077ac13a2fc7c7a154d28e6251a5e4648b` **EOA-7702** (EOA-7702) — ProfitDistributor owner (MevX authority)
+- `0x00ede53f39415e64c78eebd02ad9d383b3a0c0f1` **AlgebraCustomPoolEntryPoint** (verified) — AlgebraFactory POOLS_ADMINISTRATOR #1
+- `0xdb5a8524b6127a8fa83083fab0a30dd5df0b42a6` **BeaconFactoryAdmin** (verified) — communityVault beacon owner (can upgrade vault/gauge logic)
 - `0xbe50ae4934305c7cdc449862e387ca0515f3402f` **GaugeFactoryIncentiveCampaignProxy** (verified) [proxy→0x30d5e87c…] — communityVault owner (authority)
 - `0xfb1bffc9d739b8d520daf37df666da4c687191ea` **GnosisSafeL2** (verified) — GnosisSafe singleton (impl)
 - `0xd9e966a6bfa2ae2113a34bb4dd02ded921da50af` **GnosisSafeProxy** (verified) [proxy→0xfb1bffc9…] — GnosisSafeProxy - orig constructor owner (8% holder)
+- `0xcf57aa5b3d2f311746f1b1bae8746aacb59db105` **PauseGuardian** (verified) — Voter emergencyCouncil
 - `0x3ea45157819c46323cf3a4a3cb93bf58aa7eb81d` **PermissionsRegistry** (verified) — PermissionsRegistry - Voter access control
 - `0x41806e1af8c8ba32a2dcb289e52da7bd0a5bf2f7` **PermissionsRegistry** (verified) — feeDistributor PermissionsRegistry
 - `0x6e25d241a3ba9e0278a296b398e9678e5ed8ad40` **ProxyAdmin** (verified) — ProxyAdmin - upgrades Minter/Voter/ve/feeDist/artProxy (CRITICAL)
+- `0x2689ef6a746f1b253cd772fb045a7563505bed00` **ProxyAdmin** (verified) — plugin-factory ProxyAdmin (owner=factory EOA 0x74266f2b)
+- `0x0a70fa8e3f9dfe04348a2747fb2f5a2c6c5c791f` **ProxyAdmin** (verified) — MevX executor ProxyAdmin
 - `0x29fcb43b46531bca003ddc8fcb67ffe91900c762` **SafeL2** (verified) — Safe singleton for Minter-owner multisig
 - `0x1ae3753d9b60743a89159ccff8e251c60b560311` **SafeProxy** (verified) [proxy→0x29fcb43b…] — Minter owner (authority)
+- `0x76954c21e2a6cfc6179c8a03c7426ef2bcf35f4a` **SafeProxy** (verified) [proxy→0x29fcb43b…] — Timelock PROPOSER/CANCELLER Safe (3-of-3)
 - `0xdf52b5a03e3f5a4178e4f63e8bc51abe691b898f` **TimelockControllerEnumerable** (verified) — Minter governor (authority)
 - `0xa007970f94311b8c5ab46fb2a871bccd95662873` **TransparentUpgradeableProxy** (verified) [proxy→0xeb39e1b0…] — feeDistributor floorGuardian (sets floor price)
 

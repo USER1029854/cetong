@@ -10,25 +10,42 @@ unknown · ⬜ deliberately out of scope (with rationale) · 🟩 noted, assesse
 
 ---
 
-## 🟥 Unverified contracts in the value path
-- **MevX Executor impl `0x9e904666…`** and **MevX Router impl `0x2c3baec4…`** (behind proxies
-  `0x3a980817…` / `0xb32f9894…`) — the only source-unverified logic contracts reached from the pool's
-  plugin. Recovered behavior (selectors, guards, simulation from an unprivileged caller) is in
-  [`recovered/`](./recovered/). **What they might hide:** how the MEV subsystem interacts with swaps on
-  the $460K pool and where captured value flows. See `recovered/` for how far analysis got and what, if
-  anything, still resists it.
-- The plugin **beacon `0x106937fc…`** and **beacon-proxy shell `0xe33a2429…`** are unverified but are
-  standard OZ `UpgradeableBeacon` / `BeaconProxy` (confirmed in `recovered/`); their only power is the
-  upgrade pointer, whose owner is named in `live-state/AUTHORITIES.md`.
+## 🟥 Unverified contracts (5) — recovered from bytecode; residue noted here
+All five are in the pool's MEV/plugin subsystem, which [`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md)
+establishes **cannot transfer the pool's LP reserves**. Recovery detail: [`recovered/`](./recovered/).
+- **MevX Executor impl `0x9e904666…`** — *recovered.* No owner; upgradeable only via ProxyAdmin
+  `0x0a70fa8e…` (MEV operator key). **Residual finding:** `executeRoute` and `receiveFlashLoan` are
+  **permissionless** and act on the contract's own balances / a caller-supplied route — safe **only
+  because it is fund-less** (holds 0 now). What still resists: **21 of 37 selectors** don't resolve in
+  signature DBs (custom swap helpers), and param-decode vs caller-guard reverts on in-route callbacks
+  couldn't be fully separated by black-box calls. **Might hide:** an unguarded token-sweep of anything
+  that ever rests on the executor.
+- **MevX Router impl `0x2c3baec4…`** — *recovered.* `Ownable`, owner = MEV operator `0x00000007ac13…`;
+  all state-changing paths guarded for an unprivileged caller. 15/25 selectors unresolved (custom
+  helpers/owner-gated setters). **Might hide:** nothing reachable by an unprivileged caller; residue is
+  proprietary route-math names.
+- **MevX Router auxiliary quoter `0x854c9c8d…`** — unverified 14.6KB contract the router consults
+  (`stopLoss()` getter). Not recovered in depth: it sits inside the MEV router subsystem already shown
+  to be principal-safe. **Might hide:** the router's arbitrage price/route sourcing; no path to pool
+  reserves. Left here rather than deep-recovered as a proportionality call.
+- Plugin **beacon `0x106937fc…`** and **beacon-proxy shell `0xe33a2429…`** — *confirmed* standard OZ
+  `UpgradeableBeacon` / `BeaconProxy` (exact selector sets + revert strings, `recovered/`). Only power is
+  the upgrade pointer (beacon owner = pluginFactory; upgrade gated by factory-admin key `0xdead1f5a…` /
+  factory owner EOA — see `live-state/AUTHORITIES.md`).
 
 ## 🟧 Off-chain components in the trust path (cannot be resolved on-chain — see `live-state/OFFCHAIN.md`)
 - **Gauge-eligibility updater** EOA `0x40fbfe53…` — decides which pools may get permissionless gauges.
   Evidenced (13 `setPoolEligibility` calls, latest 2026-06-10). **Hides:** future eligibility decisions;
   a compromised key misdirects emissions (bounded — no mint/drain).
-- **ALM rebalance keeper** and **MevX MEV keeper** — off-chain operators driving the pool plugin's
-  automated liquidity management and MEV capture. On-chain authenticating addresses and guardrails in
-  [`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md). **Hide:** rebalance/MEV
-  timing and pricing decisions that move the pool's managed liquidity.
+- **Protocol operator key** (7702 EOA `0xdead1f5a…`) — the single highest-leverage off-chain key: it can
+  administer the pool and **swap the plugin hook logic for every Hydrex pool** on its own. **Hides:** the
+  off-chain process/custody behind a single key with protocol-wide hook-code control.
+- **MevX MEV keeper** (7702 EOA `0x00000007ac13…`) — **active**; back-runs swaps via the plugin's
+  `afterSwap` using its own capital, with a fee-free swap privilege. **Hides:** MEV routing/pricing; it
+  cannot touch reserves. Its executor/router impls are the unverified contracts above.
+- **ALM rebalance keeper** — **currently inactive** (`rebalanceManager = 0`); a latent role that
+  `0xdead1f5a…` can activate. Listed as a watch item, not a live component.
+  On-chain authenticating addresses and guardrails for all three: [`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md).
 - **Multisig signer key custody** — 5 EOAs (`0x813f…`, `0xb4d2…`, `0xea1b…`, `0x35e8…`, `0x7426…`) behind
   the Admin/Treasury/Floor/Proposer Safes. **Hides:** whether keys are independently held by distinct,
   honest parties. All protocol power ultimately reduces to this.

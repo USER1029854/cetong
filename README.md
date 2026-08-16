@@ -43,6 +43,33 @@ should look at hardest:
    the implementation of the Minter, Voter, VotingEscrow, fee distributor and more. Everything reduces
    to a small overlapping set of EOA signers. See [`live-state/AUTHORITIES.md`](./live-state/AUTHORITIES.md).
 
+**Empirical check (not just nominal):** every privileged value-path call was simulated from an
+arbitrary unprivileged address (`0xdEaD`) against current state — unprivileged `HYDX.mint`,
+`oHYDX.setDiscount`/`setPaymentConfiguration`/`burn`, `RewardsDistributor.withdrawERC20`,
+`Minter.setEmissionSchedule`, `Voter.setGaugeLogic`, `AlgebraFactory.transferOwnership`, and more **all
+revert**; only permissionless `Minter.update_period()` succeeds (returns 0, pays only the schedule to
+protocol contracts). Results: [`live-state/unprivileged-simulation.json`](./live-state/unprivileged-simulation.json).
+
+---
+
+## Exploitability audit — [`audit/`](./audit/)
+
+A full unprivileged-attacker exploitability pass followed the mapping. It mechanically enumerated **all 284
+state-changing entry points** across 24 bespoke contracts ([`audit/ENTRY_POINTS.md`](./audit/ENTRY_POINTS.md)),
+guarded every one, and worked the state-dependency compositions
+([`audit/STATE_DEPENDENCY_MAP.md`](./audit/STATE_DEPENDENCY_MAP.md)) across five parallel subsystem
+deep-dives (options, ve-escrow, voter, mint/rebase, incentives).
+
+**Verdict ([`audit/FINDINGS.md`](./audit/FINDINGS.md)): no economic exploit and no missing-guard path to
+funds or control survived rebuttal for an unprivileged attacker.** Every value flow an unprivileged actor
+can influence is stake-proportional, and the accounting that could break that (ve checkpoints, bribe/rebase
+epoch math, Solidly `_k`, oHYDX floor+TWAP pricing) holds; the Voter/ve delegatecall modules are
+storage-aligned. What remains: one bounded missing guard (`createGaugeV2`, LOW — reaches no funds/control),
+two correctness/robustness defects with no attacker profit (a rebase week-cursor stranding; a permissionless
+`claim` that still pays the NFT owner), hardening notes, and privileged/centralization issues flagged for the
+trust model (notably a re-callable `MinterV4._initialize` giving the governor an instant unbounded-mint path).
+None meets the bar; the compositions worked-and-rejected are tabulated so the verdict is checkable.
+
 ---
 
 ## How to use this repo
@@ -55,7 +82,7 @@ should look at hardest:
   `abi.json` is the verified ABI.
 - **Live state (who holds power, balances, impls, roles):** [`live-state/`](./live-state/) — start with
   [`AUTHORITIES.md`](./live-state/AUTHORITIES.md), then `authorities.json`, `holdings.json`,
-  `graph.json` (the full 76-node ledger), `ADDRESS_BOOK.md`.
+  `graph.json` (the full 81-node ledger: 72 verified, 5 unverified [recovered], 4 EOAs), `ADDRESS_BOOK.md`.
 - **Recovered behavior of unverified contracts:** [`recovered/`](./recovered/).
 - **Integrity checks of shared libraries vs upstream:** [`integrity/`](./integrity/).
 - **What is still unresolved:** [`UNRESOLVED.md`](./UNRESOLVED.md).
@@ -192,13 +219,38 @@ upgradeable — see [`live-state/OFFCHAIN.md`](./live-state/OFFCHAIN.md). Floor 
 
 ## 4. Liquidity — the value at risk
 
-The main pool `AlgebraPool 0x51f0…` (HYDX/USDC, Algebra Integral concentrated liquidity) currently holds
-**21.55M HYDX + 229.9K USDC**. Full drain/reconfiguration analysis, plugin-hook behavior, community-fee
-flow, and off-chain ALM/MEV keepers are in **[`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md)**.
-Contracts reproduced under [`contracts/liquidity/`](./contracts/liquidity/): the pool, `AlgebraFactory`
-(owner = **bare EOA `0x7426…`**), `AlgebraPoolDeployer`, the `AlgebraUpgradeablePlugin` (Farming+ALM+MevX;
-the MevX executor/router impls are **unverified** — see `recovered/`), the plugin factory, the
-`AlgebraCommunityVault`/`GaugeIncentiveCampaign`, and the classic Solidly `Pair` + `PairFees`.
+The main pool `AlgebraPool 0x51f0…` (HYDX/USDC, Algebra Integral concentrated liquidity) holds
+**21.55M HYDX + 229.9K USDC**. Full behavioral analysis (pool admin surface, plugin-hook behavior,
+community-fee flow, freeze switch, off-chain keepers, with source line citations and a live authorities
+JSON) is in **[`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md)**. The findings,
+all live-verified:
+
+- **No on-chain path drains the LP principal.** The pool has no admin/plugin function that transfers its
+  reserves; tokens leave only via swap (needs input), burn/collect (to the position owner), flash
+  (needs repayment), skim (excess-over-reserves, currently 0), and bounded fee transfers. The Algebra
+  pool core is byte-identical to upstream v1.2.1 (see `integrity/`). Confirmed independently by direct
+  read of `AlgebraPool.sol`.
+- **Authority reduces to two single keys.** The `AlgebraFactory` owner is a **plain EOA `0x7426…`**
+  (holds `DEFAULT_ADMIN_ROLE`, passes every `hasRoleOrOwner` gate) and a 7702 operator key
+  **`0xdead1f5a…`** holds `POOLS_ADMINISTRATOR` + plugin-manager roles. Either can, alone: `setPlugin`
+  (swap the live hook), `setCommunityVault` (redirect the fee stream), `setFee`/`setCommunityFee`/
+  `setTickSpacing`, and — via `pluginFactory.upgradePlugins` on beacon `0x106937fc…` — **replace the
+  hook logic for every Hydrex pool at once.** (Two ProxyAdmins for that subsystem, `0x2689ef6a…` and
+  `0x0a70fa8e…`, are owned by these same EOAs; saved under `governance/`.)
+- **The two real levers over principal are freeze and fee redirection, not theft:** (1) setting the
+  `SecurityRegistry` status to `DISABLED` blocks burns → **LPs cannot withdraw** (GUARD role is empty,
+  so only the owner EOA can freeze/unfreeze); (2) `communityFee` is **100%** — all swap fees already
+  leave the pool to the community vault (a `GaugeIncentiveCampaign` routing to ve-voters via the
+  internal bribe), and `setCommunityVault` can redirect that whole stream.
+- **Plugin hooks are `onlyPool`**; they set the swap fee (incl. a near-zero fee for the MEV executor)
+  and can `revert`, but no hook moves pool reserves. `afterSwap` triggers ALM rebalance (**inactive**,
+  `rebalanceManager=0`) and MEV capture (external calls, operator uses its own capital).
+
+Contracts reproduced under [`contracts/liquidity/`](./contracts/liquidity/): the pool, `AlgebraFactory`,
+`AlgebraPoolDeployer`, the `AlgebraUpgradeablePlugin` (Farming+ALM+MevX; the MevX executor/router impls
+are **unverified** — see [`recovered/`](./recovered/)), the plugin factory, the community
+vault/`GaugeIncentiveCampaign`, MevX router/executor/profit-distributor, and the classic Solidly `Pair`
++ `PairFees`.
 
 ## 5. Authorities & upgradeability
 See **[`live-state/AUTHORITIES.md`](./live-state/AUTHORITIES.md)** for the complete live map: the 4 EOA
@@ -215,7 +267,14 @@ ProxyAdmin, both permission registries with current role holders, and the Option
 ## Integrity, recovered behavior, and unresolved items
 - **Integrity** of shared libraries (OpenZeppelin, Algebra, Gnosis Safe, Solidly-family) vs upstream:
   [`integrity/`](./integrity/).
-- **Recovered behavior** of the unverified contracts (MevX executor/router impls; the plugin
-  beacon/proxy shells): [`recovered/`](./recovered/).
+- **Recovered behavior** of the unverified contracts: [`recovered/`](./recovered/). Selectors recovered
+  from bytecode, guards analyzed, and state-changing functions simulated from `0xdEaD`. Highlights:
+  **MevxExecutor** (`0x9e9046…`) has **no owner** and **two permissionless entrypoints** (`executeRoute`,
+  `receiveFlashLoan`) that operate on the contract's own balances / a caller-supplied route — safe **only
+  because the executor is fund-less by design** (holds 0 of all assets); any token that ever rests on it
+  is sweepable by an arbitrary caller. **MevxRouter** (`0x2c3bae…`) is `Ownable`, owner = MEV operator key
+  `0x00000007ac13…`, privileged setters guarded. The **plugin beacon/proxy shells** are confirmed standard
+  OZ `UpgradeableBeacon`/`BeaconProxy` pointing at the verified plugin impl. (21 of 37 executor selectors
+  remain unresolved in signature DBs — custom swap helpers.)
 - **Unresolved** addresses, opaque contracts, off-chain components, and unpinned authorities:
   [`UNRESOLVED.md`](./UNRESOLVED.md).
