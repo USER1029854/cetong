@@ -20,22 +20,35 @@ if it decides wrongly or is compromised, and whatever on-chain evidence bounds i
   it carries an EIP-7702 delegation to shared smart-account impl `0x63c0c19a…`. `owner()` of the
   oracle is the Admin Safe, which can replace the updater.
 
-## 2. ALM (automated liquidity management) rebalance keeper
-- The main $460K pool's plugin (`AlgebraUpgradeablePlugin`, impl `0xaf11628e…`) bundles an ALM module
-  whose rebalancing is driven by an **off-chain keeper/operator** submitting rebalance transactions.
-  The on-chain address it authenticates as, what it can move, and the guardrails are detailed in
-  [`liquidity-analysis.md`](./liquidity-analysis.md). An ALM keeper that rebalances adversarially or
-  at manipulated prices can move the pool's managed liquidity to the LPs' disadvantage; it does not
-  hold HYDX mint rights. This is also why the pool's on-chain reserves (21.55M HYDX / 229.9K USDC now
-  vs the ~$559K reserve quoted at discovery) shift over time — the ALM re-ranges the position.
+## 2. Protocol operator key (pool + plugin administration) — 7702 EOA `0xdead1f5af792afc125812e875a891b038f888258`
+- **The highest-leverage off-chain key in the liquidity subsystem.** LIVE it holds
+  `POOLS_ADMINISTRATOR` + `ALGEBRA_BASE_PLUGIN_MANAGER` + `ALGEBRA_BASE_PLUGIN_FACTORY_ADMINISTRATOR`
+  on the AlgebraFactory. Acting alone it can, off-chain, `setPlugin`/`setCommunityVault`/`setFee`/…​ on
+  the pool and **`upgradePlugins` — replace the hook logic for every Hydrex Algebra pool at once**.
+- **If compromised:** full control of the pool's *rules* and hook *code* (and thus the pool-plugin
+  volatility oracle that feeds oHYDX pricing), plus the ability to redirect the 100% community-fee
+  stream. It **cannot** directly transfer LP reserves (no such code path exists — see
+  [`liquidity-analysis.md`](./liquidity-analysis.md) §4), but it can freeze withdrawals and rewrite the
+  hooks. It is an **EIP-7702 smart-EOA** (delegate `0x63c0c19a…`), i.e. a single key, not a multisig.
 
-## 3. MEV capture keeper (MevX)
-- The plugin also wires an MEV subsystem (`MevxExecutor`, `MevxRouter`, `ProfitDistributor`,
-  `SecurityRegistry`). The executor/router implementations are **unverified** — see
-  [`../recovered/`](../recovered/) for recovered behavior — and are driven by an off-chain MEV
-  operator. On-chain authenticating addresses and reachability from the pool are in
-  [`liquidity-analysis.md`](./liquidity-analysis.md). `ProfitDistributor.owner` is a vanity EOA
-  `0x000000077ac13a2fc7c7a154d28e6251a5e4648b` (EIP-7702 delegated).
+## 3. MEV capture keeper (MevX) — 7702 EOA `0x000000077ac13a2fc7c7a154d28e6251a5e4648b`
+- Owns the MevX **Router `0xb32f9894…`**, **Executor `0x3a980817…`** (and its ProxyAdmin `0x0a70fa8e…`),
+  and **ProfitDistributor `0x53c67db9…`**. In the pool plugin's `afterSwap`, if `mevxRouter != 0`, the
+  hook calls `constructArbitrageRoute → executeRoute → distributeProfit` — an **active** off-chain
+  keeper back-running swaps with **its own capital**, and the executor is granted a near-zero
+  (`fee = 1`) swap fee via `beforeSwap`. The executor/router **implementations are unverified** — see
+  [`../recovered/`](../recovered/) for recovered behavior.
+- **If compromised/adversarial:** it captures the MEV a swap creates (value that might otherwise accrue
+  to LPs or other searchers) and swaps fee-free; it **cannot pull pool reserves** (price is enforced by
+  pool math, it uses its own funds). Worst case is siphoning MEV/flow, not principal.
+
+## 3b. ALM rebalance keeper — currently INACTIVE
+- The plugin bundles an ALM (automated liquidity management) module, but LIVE `rebalanceManager() = 0`
+  and the TWAP periods are 0, so **no ALM keeper is active today**; the pool's $460K is ordinary
+  concentrated-liquidity positions, not ALM-managed. (The reserve shift from the ~$559K quoted at
+  discovery to 21.55M HYDX / 229.9K USDC now is ordinary price/LP movement, not active rebalancing.)
+  If `0xdead1f5a…` sets a rebalance manager, an off-chain ALM keeper becomes live; it would operate on
+  an ALM vault's own positions, still not other LPs' reserves.
 
 ## 4. Multisig signer key custody (the ultimate off-chain trust)
 Every privileged action ultimately routes to a handful of EOAs signing Gnosis Safes

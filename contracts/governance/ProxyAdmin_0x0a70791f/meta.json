@@ -1,0 +1,36 @@
+{
+  "address": "0x0a70fa8e3f9dfe04348a2747fb2f5a2c6c5c791f",
+  "verified": true,
+  "ContractName": "ProxyAdmin",
+  "CompilerVersion": "v0.8.10+commit.fc410830",
+  "OptimizationUsed": "1",
+  "Runs": "999999",
+  "EVMVersion": "london",
+  "LicenseType": "MIT",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "files": [
+    "solc_0.8/openzeppelin/access/Ownable.sol",
+    "solc_0.8/openzeppelin/interfaces/draft-IERC1822.sol",
+    "solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Proxy.sol",
+    "solc_0.8/openzeppelin/proxy/ERC1967/ERC1967Upgrade.sol",
+    "solc_0.8/openzeppelin/proxy/Proxy.sol",
+    "solc_0.8/openzeppelin/proxy/beacon/IBeacon.sol",
+    "solc_0.8/openzeppelin/proxy/transparent/ProxyAdmin.sol",
+    "solc_0.8/openzeppelin/proxy/transparent/TransparentUpgradeableProxy.sol",
+    "solc_0.8/openzeppelin/utils/Address.sol",
+    "solc_0.8/openzeppelin/utils/Context.sol",
+    "solc_0.8/openzeppelin/utils/StorageSlot.sol",
+    "abi.json"
+  ],
+  "settings": {
+    "evmVersion": "london",
+    "libraries": {},
+    "optimizer": {
+      "enabled": true,
+      "runs": 999999
+    },
+    "remappings": []
+  }
+}

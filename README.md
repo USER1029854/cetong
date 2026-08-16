@@ -199,13 +199,38 @@ upgradeable — see [`live-state/OFFCHAIN.md`](./live-state/OFFCHAIN.md). Floor 
 
 ## 4. Liquidity — the value at risk
 
-The main pool `AlgebraPool 0x51f0…` (HYDX/USDC, Algebra Integral concentrated liquidity) currently holds
-**21.55M HYDX + 229.9K USDC**. Full drain/reconfiguration analysis, plugin-hook behavior, community-fee
-flow, and off-chain ALM/MEV keepers are in **[`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md)**.
-Contracts reproduced under [`contracts/liquidity/`](./contracts/liquidity/): the pool, `AlgebraFactory`
-(owner = **bare EOA `0x7426…`**), `AlgebraPoolDeployer`, the `AlgebraUpgradeablePlugin` (Farming+ALM+MevX;
-the MevX executor/router impls are **unverified** — see `recovered/`), the plugin factory, the
-`AlgebraCommunityVault`/`GaugeIncentiveCampaign`, and the classic Solidly `Pair` + `PairFees`.
+The main pool `AlgebraPool 0x51f0…` (HYDX/USDC, Algebra Integral concentrated liquidity) holds
+**21.55M HYDX + 229.9K USDC**. Full behavioral analysis (pool admin surface, plugin-hook behavior,
+community-fee flow, freeze switch, off-chain keepers, with source line citations and a live authorities
+JSON) is in **[`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md)**. The findings,
+all live-verified:
+
+- **No on-chain path drains the LP principal.** The pool has no admin/plugin function that transfers its
+  reserves; tokens leave only via swap (needs input), burn/collect (to the position owner), flash
+  (needs repayment), skim (excess-over-reserves, currently 0), and bounded fee transfers. The Algebra
+  pool core is byte-identical to upstream v1.2.1 (see `integrity/`). Confirmed independently by direct
+  read of `AlgebraPool.sol`.
+- **Authority reduces to two single keys.** The `AlgebraFactory` owner is a **plain EOA `0x7426…`**
+  (holds `DEFAULT_ADMIN_ROLE`, passes every `hasRoleOrOwner` gate) and a 7702 operator key
+  **`0xdead1f5a…`** holds `POOLS_ADMINISTRATOR` + plugin-manager roles. Either can, alone: `setPlugin`
+  (swap the live hook), `setCommunityVault` (redirect the fee stream), `setFee`/`setCommunityFee`/
+  `setTickSpacing`, and — via `pluginFactory.upgradePlugins` on beacon `0x106937fc…` — **replace the
+  hook logic for every Hydrex pool at once.** (Two ProxyAdmins for that subsystem, `0x2689ef6a…` and
+  `0x0a70fa8e…`, are owned by these same EOAs; saved under `governance/`.)
+- **The two real levers over principal are freeze and fee redirection, not theft:** (1) setting the
+  `SecurityRegistry` status to `DISABLED` blocks burns → **LPs cannot withdraw** (GUARD role is empty,
+  so only the owner EOA can freeze/unfreeze); (2) `communityFee` is **100%** — all swap fees already
+  leave the pool to the community vault (a `GaugeIncentiveCampaign` routing to ve-voters via the
+  internal bribe), and `setCommunityVault` can redirect that whole stream.
+- **Plugin hooks are `onlyPool`**; they set the swap fee (incl. a near-zero fee for the MEV executor)
+  and can `revert`, but no hook moves pool reserves. `afterSwap` triggers ALM rebalance (**inactive**,
+  `rebalanceManager=0`) and MEV capture (external calls, operator uses its own capital).
+
+Contracts reproduced under [`contracts/liquidity/`](./contracts/liquidity/): the pool, `AlgebraFactory`,
+`AlgebraPoolDeployer`, the `AlgebraUpgradeablePlugin` (Farming+ALM+MevX; the MevX executor/router impls
+are **unverified** — see [`recovered/`](./recovered/)), the plugin factory, the community
+vault/`GaugeIncentiveCampaign`, MevX router/executor/profit-distributor, and the classic Solidly `Pair`
++ `PairFees`.
 
 ## 5. Authorities & upgradeability
 See **[`live-state/AUTHORITIES.md`](./live-state/AUTHORITIES.md)** for the complete live map: the 4 EOA

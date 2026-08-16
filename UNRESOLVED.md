@@ -25,10 +25,15 @@ unknown · ⬜ deliberately out of scope (with rationale) · 🟩 noted, assesse
 - **Gauge-eligibility updater** EOA `0x40fbfe53…` — decides which pools may get permissionless gauges.
   Evidenced (13 `setPoolEligibility` calls, latest 2026-06-10). **Hides:** future eligibility decisions;
   a compromised key misdirects emissions (bounded — no mint/drain).
-- **ALM rebalance keeper** and **MevX MEV keeper** — off-chain operators driving the pool plugin's
-  automated liquidity management and MEV capture. On-chain authenticating addresses and guardrails in
-  [`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md). **Hide:** rebalance/MEV
-  timing and pricing decisions that move the pool's managed liquidity.
+- **Protocol operator key** (7702 EOA `0xdead1f5a…`) — the single highest-leverage off-chain key: it can
+  administer the pool and **swap the plugin hook logic for every Hydrex pool** on its own. **Hides:** the
+  off-chain process/custody behind a single key with protocol-wide hook-code control.
+- **MevX MEV keeper** (7702 EOA `0x00000007ac13…`) — **active**; back-runs swaps via the plugin's
+  `afterSwap` using its own capital, with a fee-free swap privilege. **Hides:** MEV routing/pricing; it
+  cannot touch reserves. Its executor/router impls are the unverified contracts above.
+- **ALM rebalance keeper** — **currently inactive** (`rebalanceManager = 0`); a latent role that
+  `0xdead1f5a…` can activate. Listed as a watch item, not a live component.
+  On-chain authenticating addresses and guardrails for all three: [`live-state/liquidity-analysis.md`](./live-state/liquidity-analysis.md).
 - **Multisig signer key custody** — 5 EOAs (`0x813f…`, `0xb4d2…`, `0xea1b…`, `0x35e8…`, `0x7426…`) behind
   the Admin/Treasury/Floor/Proposer Safes. **Hides:** whether keys are independently held by distinct,
   honest parties. All protocol power ultimately reduces to this.
