@@ -62,7 +62,7 @@ protocol contracts). Results: [`live-state/unprivileged-simulation.json`](./live
   `abi.json` is the verified ABI.
 - **Live state (who holds power, balances, impls, roles):** [`live-state/`](./live-state/) — start with
   [`AUTHORITIES.md`](./live-state/AUTHORITIES.md), then `authorities.json`, `holdings.json`,
-  `graph.json` (the full 76-node ledger), `ADDRESS_BOOK.md`.
+  `graph.json` (the full 79-node ledger: 70 verified, 5 unverified [recovered], 4 EOAs), `ADDRESS_BOOK.md`.
 - **Recovered behavior of unverified contracts:** [`recovered/`](./recovered/).
 - **Integrity checks of shared libraries vs upstream:** [`integrity/`](./integrity/).
 - **What is still unresolved:** [`UNRESOLVED.md`](./UNRESOLVED.md).
@@ -247,7 +247,14 @@ ProxyAdmin, both permission registries with current role holders, and the Option
 ## Integrity, recovered behavior, and unresolved items
 - **Integrity** of shared libraries (OpenZeppelin, Algebra, Gnosis Safe, Solidly-family) vs upstream:
   [`integrity/`](./integrity/).
-- **Recovered behavior** of the unverified contracts (MevX executor/router impls; the plugin
-  beacon/proxy shells): [`recovered/`](./recovered/).
+- **Recovered behavior** of the unverified contracts: [`recovered/`](./recovered/). Selectors recovered
+  from bytecode, guards analyzed, and state-changing functions simulated from `0xdEaD`. Highlights:
+  **MevxExecutor** (`0x9e9046…`) has **no owner** and **two permissionless entrypoints** (`executeRoute`,
+  `receiveFlashLoan`) that operate on the contract's own balances / a caller-supplied route — safe **only
+  because the executor is fund-less by design** (holds 0 of all assets); any token that ever rests on it
+  is sweepable by an arbitrary caller. **MevxRouter** (`0x2c3bae…`) is `Ownable`, owner = MEV operator key
+  `0x00000007ac13…`, privileged setters guarded. The **plugin beacon/proxy shells** are confirmed standard
+  OZ `UpgradeableBeacon`/`BeaconProxy` pointing at the verified plugin impl. (21 of 37 executor selectors
+  remain unresolved in signature DBs — custom swap helpers.)
 - **Unresolved** addresses, opaque contracts, off-chain components, and unpinned authorities:
   [`UNRESOLVED.md`](./UNRESOLVED.md).

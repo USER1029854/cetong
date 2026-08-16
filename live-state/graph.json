@@ -1073,5 +1073,20 @@
     "compiler": "v0.8.10+commit.fc410830",
     "constructor_args": "",
     "path": "contracts/governance/ProxyAdmin_0x0a70791f"
+  },
+  "0x854c9c8d6e7a9ec88592af174a4f040aa080b6c1": {
+    "addr": "0x854c9c8d6e7a9ec88592af174a4f040aa080b6c1",
+    "category": "liquidity",
+    "label": "MevX router auxiliary oracle/quoter (stopLoss getter)",
+    "code_bytes": 14599,
+    "kind": "contract",
+    "name": "Contract",
+    "verified": false,
+    "proxy": false,
+    "impl": "",
+    "compiler": "",
+    "constructor_args": "",
+    "path": null,
+    "needs_recovery": true
   }
 }
