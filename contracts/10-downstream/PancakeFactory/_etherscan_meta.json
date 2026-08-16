@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "address": "0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73",
+  "label": "PancakeSwap V2 Factory",
+  "ContractName": "PancakeFactory",
+  "CompilerVersion": "v0.5.16+commit.9c3226ce",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "000000000000000000000000412febf6be0ca21209cab443143f01c7131c10f8",
+  "LicenseType": "MIT",
+  "files": [
+    "PancakeFactory.sol"
+  ]
+}

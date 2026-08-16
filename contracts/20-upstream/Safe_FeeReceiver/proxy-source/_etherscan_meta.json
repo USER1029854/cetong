@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "address": "0x8a08D98CBB218fceB318Ecf3aBc1BA43D8A7aB0E",
+  "label": "Fee-receiver Safe (3-of-4) (proxy contract)",
+  "ContractName": "GnosisSafeProxy",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "Proxy": "1",
+  "Implementation": "0x3e5c63644e683549055b9be8653de26e0b4cd36e",
+  "ConstructorArguments": "",
+  "LicenseType": "GNU LGPLv3",
+  "files": [
+    "GnosisSafeProxy.sol"
+  ]
+}

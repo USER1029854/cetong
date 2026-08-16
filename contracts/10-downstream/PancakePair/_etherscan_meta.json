@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "address": "0xdabbd019c0174BDAE6354f32b158D42e4A0E7489",
+  "label": "PancakePair CETS/XAUt",
+  "ContractName": "PancakePair",
+  "CompilerVersion": "v0.5.16+commit.9c3226ce",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "LicenseType": "MIT",
+  "files": [
+    "PancakePair.sol"
+  ]
+}

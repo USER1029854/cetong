@@ -1,0 +1,28 @@
+{
+  "verified": true,
+  "address": "0xB2480c2D17BF4510701c4Def374DE6d22E039bD4",
+  "label": "ProxyAdmin (Portal)",
+  "ContractName": "ProxyAdmin",
+  "CompilerVersion": "v0.8.24+commit.e11b9ed9",
+  "OptimizationUsed": "1",
+  "Runs": "200000000",
+  "EVMVersion": "london",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "LicenseType": "MIT",
+  "files": [
+    "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+    "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
+    "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/transparent/ProxyAdmin.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/transparent/TransparentUpgradeableProxy.sol",
+    "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+    "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+    "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol"
+  ]
+}

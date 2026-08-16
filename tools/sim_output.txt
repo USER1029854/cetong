@@ -1,0 +1,66 @@
+==========================================================================================
+UNPRIVILEGED-CALLER SIMULATION  (from = 0x1111111111111111111111111111111111111111 ) — eth_call, no tx sent
+==========================================================================================
+
+--- TaxProcessor 0xfe03d87c2539E1946C402E948312565db8b697D4 (holds XAUt for holders) ---
+  [REVERT    ] withdrawAll(XAUt -> attacker)                    -> Error: Ownable: caller is not the owner
+  [REVERT    ] withdrawAll(quote/native -> attacker)            -> Error: Ownable: caller is not the owner
+  [REVERT    ] processTaxTokens(1)                              -> Error: TaxProcessor: caller is not the tax token
+  [REVERT    ] setConverter(attacker)                           -> Error: Ownable: caller is not the owner
+  [REVERT    ] setReceivers(attacker x3)                        -> Error: Ownable: caller is not the owner
+  [REACHABLE ] dispatch()  [keeper]                             -> ok (ret 0x)
+  [REVERT    ] processBondingCurveTax(1)                        -> Error: ERC20: transfer amount exceeds balance
+
+--- Dividend 0x25765FAc1B94173bd60F0874a072dc4FA78FB3cF (holds XAUt for holders) ---
+  [REVERT    ] emergencyWithdraw(XAUt, all -> attacker)         -> Error: Ownable: caller is not the owner
+  [REVERT    ] setShare(attacker, huge)                         -> Error: Dividend: caller is not the tax token
+  [REVERT    ] excludeAddress(attacker)                         -> Error: Ownable: caller is not the owner
+  [REVERT    ] setDividendToken(attacker)                       -> Error: Ownable: caller is not the owner
+  [REACHABLE ] distributeDividend([])  [keeper]                 -> ok (ret 0x000000000000000000...)
+  [REACHABLE ] withdrawDividends()  [self-claim]                -> ok (ret 0x000000000000000000...)
+
+--- Token 0xb0c2ab5af4028461ace3f6e1c33a4ee1404e7777 (ownership renounced) ---
+  [REVERT    ] startMigration()                                 -> Error: Ownable: caller is not the owner
+  [REVERT    ] finalizeMigration()                              -> Error: Ownable: caller is not the owner
+
+==========================================================================================
+LIVE STATE
+==========================================================================================
+
+--- PancakePair CETS/XAUt 0xdabbd019c0174BDAE6354f32b158D42e4A0E7489 ---
+  reserve0 (XAUt, 6dec): 39.923401
+  reserve1 (CETS,18dec): 18690855.89327178
+  blockTimestampLast: 1786855828
+  token0: 0x21cAef8A43163Eea865baeE23b9C2E327696A3bf token1: 0xB0c2aB5af4028461acE3f6e1C33a4eE1404E7777
+  pair totalSupply(LP): 0.024392724998792723
+  kLast: 746131634445969465181133719260086
+
+--- XAUt (6 dec) balances held on behalf of holders ---
+  XAUt held by TaxProcessor                  0.006344  (raw 6344)
+  XAUt held by Dividend                      1.087080  (raw 1087080)
+  XAUt in pool (reserve check)               39.923401  (raw 39923401)
+
+--- CETS (18 dec) balances ---
+  CETS in pool                               18690855.893272  (raw 18690855893271781787304819)
+  CETS accrued as tax on token itself        274061.259245  (raw 274061259245158756473898)
+  CETS held by TaxProcessor                  0.000000  (raw 0)
+  CETS held by Dividend                      0.000000  (raw 0)
+  CETS burned (dead)                         45578077.181703  (raw 45578077181702764201644247)
+
+--- Token poolState (tax config) ---
+  state: 2 (TaxEnforcedAntiFarmer)
+  buyTaxRate: 300 bps (3.0%)   sellTaxRate: 300 bps (3.0%)
+  liquidationThreshold: 380396.01995999995 CETS
+  taxExpirationTime: 4939590216   antiFarmerExpirationTime: 1788582216
+
+--- pools mapping membership ---
+  pools[mainPool]: True
+
+--- Standing approvals (allowance) ---
+  CETS allowance TaxProcessor->router: 0.0
+  XAUt allowance TaxProcessor->router: 0.0
+  CETS allowance token->TaxProcessor  : 1.157920892373162e+59 (self-approve for pulls)
+
+--- Dividend accounting ---
+  totalShares: 930467210.422841
+  minimumShareBalance: 10000.0

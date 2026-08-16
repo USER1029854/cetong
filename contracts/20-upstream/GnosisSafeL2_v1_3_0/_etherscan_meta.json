@@ -1,0 +1,32 @@
+{
+  "verified": true,
+  "address": "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+  "label": "GnosisSafeL2 singleton (v1.3.0)",
+  "ContractName": "GnosisSafeL2",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "Proxy": "1",
+  "Implementation": "0x9c28a2483901018216282216bc47cb699ca2d57f",
+  "ConstructorArguments": "",
+  "LicenseType": "GNU LGPLv3",
+  "files": [
+    "contracts/GnosisSafe.sol",
+    "contracts/GnosisSafeL2.sol",
+    "contracts/base/Executor.sol",
+    "contracts/base/FallbackManager.sol",
+    "contracts/base/GuardManager.sol",
+    "contracts/base/ModuleManager.sol",
+    "contracts/base/OwnerManager.sol",
+    "contracts/common/Enum.sol",
+    "contracts/common/EtherPaymentFallback.sol",
+    "contracts/common/SecuredTokenTransfer.sol",
+    "contracts/common/SelfAuthorized.sol",
+    "contracts/common/SignatureDecoder.sol",
+    "contracts/common/Singleton.sol",
+    "contracts/common/StorageAccessible.sol",
+    "contracts/external/GnosisSafeMath.sol",
+    "contracts/interfaces/ISignatureValidator.sol"
+  ]
+}

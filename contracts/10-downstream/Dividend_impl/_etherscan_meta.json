@@ -1,0 +1,27 @@
+{
+  "verified": true,
+  "address": "0xcc11687b2389AE68b38c74495714781B11E40d71",
+  "label": "Dividend implementation (behind Dividend clone)",
+  "ContractName": "Dividend",
+  "CompilerVersion": "v0.8.26+commit.8a97fa7a",
+  "OptimizationUsed": "1",
+  "Runs": "99999",
+  "EVMVersion": "cancun",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "LicenseType": "MIT",
+  "files": [
+    "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+    "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
+    "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+    "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+    "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Permit.sol",
+    "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+    "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+    "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+    "src/Tax/Dividend.sol",
+    "src/interfaces/Tax/IDividend.sol"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "address": "0x1f96BC88f0794060433Be5F3EC9159a9C4f08A3b",
+  "label": "Launchpad-admin Safe (3-of-4) (proxy contract)",
+  "ContractName": "SafeProxy",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "Default",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "LicenseType": "",
+  "files": [
+    "contracts/proxies/SafeProxy.sol"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "verified": true,
+  "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+  "label": "SafeL2 singleton (v1.4.1)",
+  "ContractName": "SafeL2",
+  "CompilerVersion": "v0.7.6+commit.7338295f",
+  "OptimizationUsed": "0",
+  "Runs": "200",
+  "EVMVersion": "istanbul",
+  "Proxy": "0",
+  "Implementation": "",
+  "ConstructorArguments": "",
+  "LicenseType": "GNU LGPLv3",
+  "files": [
+    "contracts/Safe.sol",
+    "contracts/SafeL2.sol",
+    "contracts/base/Executor.sol",
+    "contracts/base/FallbackManager.sol",
+    "contracts/base/GuardManager.sol",
+    "contracts/base/ModuleManager.sol",
+    "contracts/base/OwnerManager.sol",
+    "contracts/common/Enum.sol",
+    "contracts/common/NativeCurrencyPaymentFallback.sol",
+    "contracts/common/SecuredTokenTransfer.sol",
+    "contracts/common/SelfAuthorized.sol",
+    "contracts/common/SignatureDecoder.sol",
+    "contracts/common/Singleton.sol",
+    "contracts/common/StorageAccessible.sol",
+    "contracts/external/SafeMath.sol",
+    "contracts/interfaces/IERC165.sol",
+    "contracts/interfaces/ISignatureValidator.sol"
+  ]
+}
