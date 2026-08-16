@@ -72,6 +72,13 @@ TaxProcessor swaps CETS→XAUt on PancakeSwap (**`amountOutMin` hard-coded to 0*
 one-sided liquidity (LP → `0xdead`), and forwards the dividend part to the Dividend
 contract, which books it per-share. Holders later pull XAUt via `withdrawDividends`.
 
+The TaxProcessor `delegatecall`s the actual sweep/dispatch logic into two internal
+helper implementations (`ADMIN_IMPL` `0x1271D4…`, `DISPATCH_IMPL` `0x0B4655…`). They
+read "unverified" on the explorer but are the `TaxProcessorAdminImpl` /
+`TaxProcessorV2DispatchImpl` contracts inside the verified `TaxProcessorBase.sol` —
+named, source-present, and behavior-confirmed in
+`contracts/10-downstream/TaxProcessor/DELEGATECALL_TARGETS.md`.
+
 ### Upstream — what holds power over the target without being it
 
 | # | Authority | Address | Power it holds | Code |
