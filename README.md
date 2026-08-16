@@ -52,6 +52,26 @@ protocol contracts). Results: [`live-state/unprivileged-simulation.json`](./live
 
 ---
 
+## Exploitability audit — [`audit/`](./audit/)
+
+A full unprivileged-attacker exploitability pass followed the mapping. It mechanically enumerated **all 284
+state-changing entry points** across 24 bespoke contracts ([`audit/ENTRY_POINTS.md`](./audit/ENTRY_POINTS.md)),
+guarded every one, and worked the state-dependency compositions
+([`audit/STATE_DEPENDENCY_MAP.md`](./audit/STATE_DEPENDENCY_MAP.md)) across five parallel subsystem
+deep-dives (options, ve-escrow, voter, mint/rebase, incentives).
+
+**Verdict ([`audit/FINDINGS.md`](./audit/FINDINGS.md)): no economic exploit and no missing-guard path to
+funds or control survived rebuttal for an unprivileged attacker.** Every value flow an unprivileged actor
+can influence is stake-proportional, and the accounting that could break that (ve checkpoints, bribe/rebase
+epoch math, Solidly `_k`, oHYDX floor+TWAP pricing) holds; the Voter/ve delegatecall modules are
+storage-aligned. What remains: one bounded missing guard (`createGaugeV2`, LOW — reaches no funds/control),
+two correctness/robustness defects with no attacker profit (a rebase week-cursor stranding; a permissionless
+`claim` that still pays the NFT owner), hardening notes, and privileged/centralization issues flagged for the
+trust model (notably a re-callable `MinterV4._initialize` giving the governor an instant unbounded-mint path).
+None meets the bar; the compositions worked-and-rejected are tabulated so the verdict is checkable.
+
+---
+
 ## How to use this repo
 
 - **Source tree:** [`contracts/`](./contracts/), grouped by role. Each contract lives in its own
@@ -62,7 +82,7 @@ protocol contracts). Results: [`live-state/unprivileged-simulation.json`](./live
   `abi.json` is the verified ABI.
 - **Live state (who holds power, balances, impls, roles):** [`live-state/`](./live-state/) — start with
   [`AUTHORITIES.md`](./live-state/AUTHORITIES.md), then `authorities.json`, `holdings.json`,
-  `graph.json` (the full 79-node ledger: 70 verified, 5 unverified [recovered], 4 EOAs), `ADDRESS_BOOK.md`.
+  `graph.json` (the full 81-node ledger: 72 verified, 5 unverified [recovered], 4 EOAs), `ADDRESS_BOOK.md`.
 - **Recovered behavior of unverified contracts:** [`recovered/`](./recovered/).
 - **Integrity checks of shared libraries vs upstream:** [`integrity/`](./integrity/).
 - **What is still unresolved:** [`UNRESOLVED.md`](./UNRESOLVED.md).

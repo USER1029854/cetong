@@ -46,7 +46,27 @@ not to re-derive that stake-proportional flows are safe.
 - **Trigger the Voter's delegatecall modules to corrupt Voter storage (edges 4/6).** Storage-layout equivalence of `gaugeLogic`/`claimLogic` vs `VoterV5_Storage` checked in `subsystem-voter.md`.
 - **oHYDX `exerciseVe` for free (edge 1 variant).** Rejected: burns oHYDX (1:1 HYDX-backed) to create a permanent veHYDX lock of equal size — a fair 1:1 conversion, no free value; you gave up an asset worth ~1 HYDX to lock 1 HYDX.
 
+## Cross-check resolution (the one coupling that spanned two subsystems)
+
+The single dependency that a bug could have exploited across subsystem boundaries was **edge 4**:
+`BribeV2` (the sink for 100% of the main pool's swap fees) conserves value only if the VotingEscrow
+invariant `Σ_{nft→D} balanceOfNFTAt(nft,T) == getPastVotes(D,T)` holds — and that invariant lives in a
+different subsystem than the bribe accounting. **Both sides were independently confirmed:**
+- `subsystem-ve.md`: delegation is always a single-valued atomic move (`_escrowDelegateeAddress` is
+  single-valued), and `global == Σ escrow` by construction ⇒ no epoch double-count; per-delegate votes
+  are consistent with per-NFT balances.
+- `subsystem-voter.md` + `subsystem-incentives.md`: every bribe/vote read is a strictly-past snapshot keyed
+  by an immutable epoch timestamp, per-tokenId `tokenTimestamp` anti-replay, weights sum ≤ 1e18.
+
+⇒ BribeV2 over-claim is **not reachable**; the missing `≤1e18` cap in `BribeV2._earnedTokenId` is
+defense-in-depth, not a live hole (see `FINDINGS.md` C-3).
+
+The delegatecall-storage composition (Voter and ve modules writing the parent's storage) resolved the same
+way: `VoterV5_Storage` is byte-identical across Voter/GaugeLogic/ClaimLogic and the ve LockLogic/ApprovalLogic
+share the impl's layout with no layout-changing setter — **provably aligned**, so an unprivileged caller
+who triggers a delegatecall cannot corrupt parent storage.
+
 ## Per-subsystem detail
 Full entry-point guard tables and intra-subsystem compositions:
 `subsystem-options.md` · `subsystem-ve.md` · `subsystem-voter.md` · `subsystem-mint.md` · `subsystem-incentives.md`.
-Surviving findings (if any) are consolidated in `FINDINGS.md`.
+Consolidated findings + rejected-composition table: `FINDINGS.md`.

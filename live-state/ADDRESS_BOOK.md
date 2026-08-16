@@ -1,7 +1,7 @@
 # Hydrex (HYDX) trust-graph address book
 
 
-Total nodes: 79
+Total nodes: 81
 
 
 ## target
@@ -27,6 +27,8 @@ Total nodes: 79
 - `0x8cf73eb543c75ba5f2e188d3ce5f8682f2e7f0a3` **VoterV5_GaugeLogic** (verified) — Voter gaugeLogic (delegatecall target?)
 - `0x0fc68ce53be957a1aa779f553ad49f6068fff231` **VotingEscrowV2Upgradeable** (verified) — VotingEscrowV2 implementation
 - `0x25b2ed7149fb8a05f6ef9407d9c8f878f59cd1e1` **VotingEscrowV2UpgradeableProxy** (verified) [proxy→0x0fc68ce5…] — VotingEscrowV2UpgradeableProxy veHYDX (14.8% holder)
+- `0x4b0bc0889eb524dbae36d409ff733851e9b4f63d` **VotingEscrowV2_ApprovalLogic** (verified) — VotingEscrowV2 ApprovalLogic (delegatecall target)
+- `0x5c8dbb8f2e436175317929d1e299eb23d34eb27c` **VotingEscrowV2_LockLogic** (verified) — VotingEscrowV2 LockLogic (delegatecall target)
 
 ## options
 - `0xf524522bbd8fc020033d94f83b83f5b50c9b6ea7` **AlgebraIntegralTwap** (verified) — TwapOracle for OptionToken discount pricing

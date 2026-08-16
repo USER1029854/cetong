@@ -1088,5 +1088,33 @@
     "constructor_args": "",
     "path": null,
     "needs_recovery": true
+  },
+  "0x5c8dbb8f2e436175317929d1e299eb23d34eb27c": {
+    "addr": "0x5c8dbb8f2e436175317929d1e299eb23d34eb27c",
+    "category": "ve-core",
+    "label": "VotingEscrowV2 LockLogic (delegatecall target)",
+    "code_bytes": 18647,
+    "kind": "contract",
+    "name": "VotingEscrowV2_LockLogic",
+    "verified": true,
+    "proxy": false,
+    "impl": "",
+    "compiler": "v0.8.13+commit.abaa5c0e",
+    "constructor_args": "",
+    "path": "contracts/ve-core/VotingEscrowV2_LockLogic_0x5c8db27c"
+  },
+  "0x4b0bc0889eb524dbae36d409ff733851e9b4f63d": {
+    "addr": "0x4b0bc0889eb524dbae36d409ff733851e9b4f63d",
+    "category": "ve-core",
+    "label": "VotingEscrowV2 ApprovalLogic (delegatecall target)",
+    "code_bytes": 14808,
+    "kind": "contract",
+    "name": "VotingEscrowV2_ApprovalLogic",
+    "verified": true,
+    "proxy": false,
+    "impl": "",
+    "compiler": "v0.8.13+commit.abaa5c0e",
+    "constructor_args": "",
+    "path": "contracts/ve-core/VotingEscrowV2_ApprovalLogic_0x4b0bf63d"
   }
 }
