@@ -1,0 +1,109 @@
+[
+  {
+    "call": "HYDX.mint(dead,1e18) \u2014 unprivileged mint",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0x118cdaa7"
+  },
+  {
+    "call": "HYDX.initialMint(dead)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0x118cdaa7"
+  },
+  {
+    "call": "HYDX.transferOwnership(dead)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0x118cdaa7"
+  },
+  {
+    "call": "Minter.setGovernor(dead)",
+    "result": "REVERT",
+    "reason": "not governor",
+    "raw_selector": "0x08c379a0"
+  },
+  {
+    "call": "Minter.setEmissionSchedule(dead)",
+    "result": "REVERT",
+    "reason": "not governor",
+    "raw_selector": "0x08c379a0"
+  },
+  {
+    "call": "Minter.update_period() \u2014 permissionless keeper call",
+    "result": "SUCCESS",
+    "returns": "0x000000000000000000"
+  },
+  {
+    "call": "oHYDX.setDiscount(1) \u2014 cheapen exercise",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0xf982dd0f"
+  },
+  {
+    "call": "oHYDX.setPaymentConfiguration(0,0,0) \u2014 swap oracle",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0xf982dd0f"
+  },
+  {
+    "call": "oHYDX.burn(1) \u2014 admin redeem",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0xf982dd0f"
+  },
+  {
+    "call": "oHYDX.toggleExternalOption(dead,true)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0xf982dd0f"
+  },
+  {
+    "call": "RewardsDistributor.withdrawERC20(HYDX)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": ""
+  },
+  {
+    "call": "RewardsDistributor.setOwner(dead)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": ""
+  },
+  {
+    "call": "EmissionSchedule.adjustTailEmission(2e14,true)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0x0cc6a5f8"
+  },
+  {
+    "call": "EmissionSchedule.transferGovernance(dead)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0x0cc6a5f8"
+  },
+  {
+    "call": "AlgebraFactory.transferOwnership(dead)",
+    "result": "REVERT",
+    "reason": "Ownable: caller is not the owner",
+    "raw_selector": "0x08c379a0"
+  },
+  {
+    "call": "Voter.setGaugeLogic(dead) \u2014 swap delegatecall target",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": "0x906f8d41"
+  },
+  {
+    "call": "ve.createLockFor is priv? try setTeam(dead)",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": ""
+  },
+  {
+    "call": "PoolEligibilityOracle.setPoolEligibility(dead,true) from dead",
+    "result": "REVERT",
+    "reason": "execution reverted",
+    "raw_selector": ""
+  }
+]

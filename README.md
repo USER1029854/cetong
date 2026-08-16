@@ -43,6 +43,13 @@ should look at hardest:
    the implementation of the Minter, Voter, VotingEscrow, fee distributor and more. Everything reduces
    to a small overlapping set of EOA signers. See [`live-state/AUTHORITIES.md`](./live-state/AUTHORITIES.md).
 
+**Empirical check (not just nominal):** every privileged value-path call was simulated from an
+arbitrary unprivileged address (`0xdEaD`) against current state — unprivileged `HYDX.mint`,
+`oHYDX.setDiscount`/`setPaymentConfiguration`/`burn`, `RewardsDistributor.withdrawERC20`,
+`Minter.setEmissionSchedule`, `Voter.setGaugeLogic`, `AlgebraFactory.transferOwnership`, and more **all
+revert**; only permissionless `Minter.update_period()` succeeds (returns 0, pays only the schedule to
+protocol contracts). Results: [`live-state/unprivileged-simulation.json`](./live-state/unprivileged-simulation.json).
+
 ---
 
 ## How to use this repo
